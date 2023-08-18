@@ -8,25 +8,28 @@ import pageobjects.LoginPO;
 
 public class StepsCadastro {
 
+
+    String ema;
+    String pass;
     LoginPO loginPO;
 
-    @Given("que estou no modal de cadastro")
-    public void que_estou_no_modal_de_cadastro() {
+
+    @Given("eu acessei o site do nikel")
+    public void eu_acessei_o_site_do_nikel() {
         loginPO = new LoginPO();
         loginPO.validatePagLogin();
-        loginPO.btnCadastro();
     }
-    @When("Quando eu preencho os campos com minhas informações")
-    public void quando_eu_preencho_os_campos_com_minhas_informações() {
-        loginPO.inputEmailCadastro("admin@admin.com.br");
-        loginPO.inputSenhaCadastro("123456");
+    @When("fiz o cadastro com o email {string} e a senha {string}")
+    public void fiz_o_cadastro_com_o_email_e_a_senha(String email, String password) {
+        ema = email;
+        pass = password;
+        loginPO.cadastro(ema, pass);
+
     }
-    @When("clico no botão Criar conta")
-    public void clico_no_botão_criar_conta() {
-        loginPO.btnCriarConta();
+    @Then("eu vizualizei a mensagem {string}")
+    public void eu_vizualizei_a_mensagem(String message) {
+
     }
-    @Then("Devo receber a mensagem de conta criada com sucesso")
-    public void devo_receber_a_mensagem_de_conta_criada_com_sucesso() {
-        loginPO.validatePop();
-    }
+
+
 }

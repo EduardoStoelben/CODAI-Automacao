@@ -16,7 +16,7 @@ public class Hook {
         AppWeb appWeb = new AppWeb();
         appWeb.setUpDriver();
         getDriver().manage().window().maximize();
-        getDriver().get("http://127.0.0.1:5501/public/index.html");
+        getDriver().get("http://127.0.0.1:5500/public/index.html");
         testScenario.set(scenario);
     }
 
