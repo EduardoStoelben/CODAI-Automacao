@@ -9,12 +9,10 @@ import pageobjects.LoginPO;
 
 public class StepsCadastro {
 
-
     String ema;
     String pass;
     CadastroPO cadastroPO;
     LoginPO loginPO;
-
 
     @Given("eu acessei o site do nikel")
     public void eu_acessei_o_site_do_nikel() {
@@ -27,12 +25,9 @@ public class StepsCadastro {
         ema = email;
         pass = password;
         cadastroPO.cadastro(ema, pass);
-
     }
     @Then("eu vizualizei a mensagem {string}")
     public void eu_vizualizei_a_mensagem(String message) {
-        cadastroPO.validateCadastroNikel(ema, pass, message);
+        cadastroPO.validateMessage(message);
     }
-
-
 }
